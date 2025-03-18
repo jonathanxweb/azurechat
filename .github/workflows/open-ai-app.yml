@@ -81,12 +81,12 @@ jobs:
       - name: Azure CLI script
         uses: azure/CLI@v2.1.0
         with:
-    inlineScript: |
-      echo "Using resource group: ${{ secrets.AZURE_RESOURCE_GROUP }}"
-      az webapp config appsettings set -n ${{ secrets.AZURE_APP_SERVICE_NAME }} -g ${{ secrets.AZURE_RESOURCE_GROUP }} --settings SCM_DO_BUILD_DURING_DEPLOYMENT=false -o none
-      echo "Setting --startup-file=\"node server.js\" on app service ${{ secrets.AZURE_APP_SERVICE_NAME }}"
-      az webapp config set --startup-file="node server.js" -n ${{ secrets.AZURE_APP_SERVICE_NAME }} -g ${{ secrets.AZURE_RESOURCE_GROUP }} -o none
-      sleep 10
+          inlineScript: |
+            echo "Using resource group: ${{ secrets.AZURE_RESOURCE_GROUP }}"
+            az webapp config appsettings set -n ${{ secrets.AZURE_APP_SERVICE_NAME }} -g ${{ secrets.AZURE_RESOURCE_GROUP }} --settings SCM_DO_BUILD_DURING_DEPLOYMENT=false -o none
+            echo "Setting --startup-file=\"node server.js\" on app service ${{ secrets.AZURE_APP_SERVICE_NAME }}"
+            az webapp config set --startup-file="node server.js" -n ${{ secrets.AZURE_APP_SERVICE_NAME }} -g ${{ secrets.AZURE_RESOURCE_GROUP }} -o none
+            sleep 10
 
 
 
